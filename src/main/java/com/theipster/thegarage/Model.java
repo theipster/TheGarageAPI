@@ -1,30 +1,32 @@
-package com.theipster.thegarage.data;
+package com.theipster.thegarage;
 
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Manufacturer {
+public class Model {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@OneToMany(mappedBy = "manufacturer")
-	private List<Model> models;
-
+	@ManyToOne(optional = false)
+	private Manufacturer manufacturer;
 	private String name;
 
-	public List<Model> getModels() {
-		return this.models;
+	public Manufacturer getManufacturer() {
+		return manufacturer;
 	}
 
 	public String getName() {
-		return this.name;
+		return name;
+	}
+
+	public void setManufacturer(Manufacturer manufacturer) {
+		this.manufacturer = manufacturer;
 	}
 
 	public void setName(String name) {

@@ -1,4 +1,4 @@
-package com.theipster.thegarage.data;
+package com.theipster.thegarage;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 
