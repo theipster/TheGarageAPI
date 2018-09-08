@@ -4,3 +4,20 @@ services:
     build: app
     ports:
       - "80:8080"
+    environment:
+      DATABASE_HOST: mysql
+      DATABASE_USER: docker_user
+      DATABASE_PASSWORD: c0me@m3bro!
+      DATABASE_NAME: docker_db
+      DATABASE_PORT: 3306
+    depends_on:
+      - db
+  db:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: docker_db
+      MYSQL_PASSWORD: c0me@m3bro!
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      MYSQL_USER: docker_user

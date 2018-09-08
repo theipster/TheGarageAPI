@@ -1,7 +1,7 @@
 FROM gradle:jre10-slim as builder
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
-RUN gradle build
+RUN gradle build -x test
 
 FROM openjdk:10-jre-slim
 EXPOSE 8080
