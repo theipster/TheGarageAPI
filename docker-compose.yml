@@ -21,3 +21,5 @@ services:
       MYSQL_PASSWORD: c0me@m3bro!
       MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
       MYSQL_USER: docker_user
+    security_opt:
+      - seccomp:unconfined
